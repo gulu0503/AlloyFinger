@@ -1,118 +1,14 @@
-# Preview
+# 說明
 
-You can touch this → [http://alloyteam.github.io/AlloyFinger/](http://alloyteam.github.io/AlloyFinger/)
+因為有需求要對Canvas畫布的圖案或文字使用手勢操作，但是沒有找到看到類似的東西，所以稍微調整了AlloyFinger手勢庫，使其能夠支援PixiJS。
 
-# Install
+# 示例（需用手機開啟）
 
-You can install it via npm:
+請點我 → [https://pixi-touch.azurewebsites.net/](https://pixi-touch.azurewebsites.net/)
 
-```html
-npm install alloyfinger
-```
+# 使用方法
 
-# Usage
-
-```js
-var af = new AlloyFinger(element, {
-    touchStart: function () { },
-    touchMove: function () { },
-    touchEnd:  function () { },
-    touchCancel: function () { },
-    multipointStart: function () { },
-    multipointEnd: function () { },
-    tap: function () { },
-    doubleTap: function () { },
-    longTap: function () { },
-    singleTap: function () { },
-    rotate: function (evt) {
-        console.log(evt.angle);
-    },
-    pinch: function (evt) {
-        console.log(evt.zoom);
-    },
-    pressMove: function (evt) {
-        console.log(evt.deltaX);
-        console.log(evt.deltaY);
-    },
-    swipe: function (evt) {
-        console.log("swipe" + evt.direction);
-    }
-});
-
-/**
- * this method can also add or remove the event handler
- */
-var onTap = function() {};
-
-af.on('tap', onTap);
-af.on('touchStart', function() {});
-
-af.off('tap', onTap);
-
-/**
- * this method can destroy the instance
- */
-af = af.destroy();
-```
-
-### Omi Version:
-
-
-```js
-import { render, tag, WeElement } from 'omi'
-import 'omi-finger'
-
-@tag('my-app')
-class MyApp extends WeElement {
-  install() {
-    this.data.wording = 'Tap or Swipe Me!'
-  }
-
-  handleTap = (evt) => {
-    this.data.wording += '\r\nTap'
-    this.update()
-  }
-
-  handleSwipe = (evt) => {
-    this.data.wording += '\r\nSwipe-' + evt.direction
-    this.update()
-  }
-
-  render() {
-    return (
-      <div>
-        <omi-finger onTap={this.handleTap} abc={{a:1}} onSwipe={this.handleSwipe}>
-          <div class="touchArea" >
-            {this.data.wording}
-          </div>
-        </omi-finger>
-      </div>
-    )
-  }
-
-  css() {
-    return `.touchArea{
-                  background-color: green;
-                  width: 200px;
-                  min-height: 200px;
-                  text-align: center;
-                  color:white;
-                  height:auto;
-                  white-space: pre-line;
-              }`
-  }
-}
-
-render(<my-app></my-app>, 'body')
-```
-
-* [omi-finger](https://github.com/Tencent/omi/tree/master/packages/omi-finger)
-* [css3transform](https://github.com/Tencent/omi/tree/master/packages/omi-transform)
-
-# Others
-
-* [AlloyCrop](https://github.com/AlloyTeam/AlloyCrop)
-
+基本上與AlloyFinger操作方式相同，請參考 → [https://github.com/AlloyTeam/AlloyFinger/](https://github.com/AlloyTeam/AlloyFinger/)
 
 # License
 This content is released under the [MIT](http://opensource.org/licenses/MIT) License.
